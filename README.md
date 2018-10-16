@@ -10,7 +10,7 @@ The virus will be partly created in blender and part in Unity depending on what 
 the virus' so far that i will be generating are:
   
   E- Coli
-  ![ecoli](C:\Users\sastr\Documents\ComputerScience\Year 4\GamesEngines\GEAssignment\Images)
+  ![](\Images\ecoli.jpg)
 
   
   
