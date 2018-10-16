@@ -9,8 +9,8 @@ This generation of art is split into 3 parts
 The virus will be partly created in blender and part in Unity depending on what virus I am creating
 the virus' so far that i will be generating are:
   
-  E- Coli
-  ![](\Images\ecoli.jpg)
+ 
+  ![E- Coli](/Images/ecoli.jpg)
 
   
   
