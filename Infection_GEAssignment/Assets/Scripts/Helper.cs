@@ -9,6 +9,8 @@ public class Helper : MonoBehaviour {
 
     // Add shape settings
     public ShapeSettings shapeSettings;
+    public ColourSettings colourSettings;
+
 
     ShapeGenerator shapeGenerator;
 
@@ -57,6 +59,7 @@ public class Helper : MonoBehaviour {
     {
         Initialize();
         GenerateMesh();
+        GenerateColours();
     }
 
     //Only on shape change call this method
@@ -66,12 +69,28 @@ public class Helper : MonoBehaviour {
         GenerateMesh();
     }
 
+    //Only on colour change call this method
+    public void OnColourSettingsUpdated()
+    {
+        Initialize();
+        GenerateColours();
+    }
+
     //Generate triangle mesh here
     void GenerateMesh()
     {
         foreach (terrainFace face in terrainFaces)
         {
             face.ConstructMesh();
+        }
+    }
+
+    // Loop through meshes and set materials colour
+    void GenerateColours()
+    {
+        foreach(MeshFilter m in meshFilters)
+        {
+            m.GetComponent<MeshRenderer>().sharedMaterial.color = colourSettings.sphereColour;
         }
     }
     
