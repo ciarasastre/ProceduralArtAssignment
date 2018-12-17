@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Helper : MonoBehaviour {
 
-    [Range(2, 256)] // Maximum range 256 
+    [Range(2, 256)] // Maximum range 256 squared
     public int resolution = 10;
 
+    [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     terrainFace[] terrainFaces;
 
@@ -17,19 +18,27 @@ public class Helper : MonoBehaviour {
     }
     void Initialize()
     {
-        meshFilters = new MeshFilter[6];
+        if(meshFilters == null || meshFilters.Length == 0)
+        {
+            meshFilters = new MeshFilter[6];
+        }
+        
         terrainFaces = new terrainFace[6];
 
         Vector3[] directions = {Vector3.up, Vector3.down, Vector3.left, Vector3.right, Vector3.forward, Vector3.back}; 
 
         for(int i=0; i < 6; i++)
         {
-            GameObject meshObj = new GameObject("mesh");
-            meshObj.transform.parent = transform;
+            if(meshFilters[i] == null)
+            {
+                GameObject meshObj = new GameObject("mesh");
+                meshObj.transform.parent = transform;
 
-            meshObj.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
-            meshFilters[i] = meshObj.AddComponent<MeshFilter>();
-            meshFilters[i].sharedMesh = new Mesh();
+                meshObj.AddComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Standard"));
+                meshFilters[i] = meshObj.AddComponent<MeshFilter>();
+                meshFilters[i].sharedMesh = new Mesh();
+            }
+            
 
             terrainFaces[i] = new terrainFace(meshFilters[i].sharedMesh, resolution, directions[i]);
         }
@@ -40,7 +49,7 @@ public class Helper : MonoBehaviour {
     {
         foreach (terrainFace face in terrainFaces)
         {
-
+            face.ConstructMesh();
         }
     }
 }

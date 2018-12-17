@@ -25,27 +25,28 @@ public class terrainFace {
         Vector3[] vertices = new Vector3[resolution * resolution];
         //Find out how many triangles are in our Mesh
         int[] triangles = new int[(resolution - 1) * (resolution - 1) * 6];
-
         int triIndex = 0;
 
-        for (int x = 0; x<resolution; x++)
+        for (int y = 0; y < resolution; y++)
         {
-            for (int y = 0; y<resolution; y++)
+            for (int x = 0; x < resolution; x++)
             {
                 int i = x + y * resolution; //Number of iterations on loop
                 Vector2 percent = new Vector2(x, y) / (resolution - 1);
                 //Find center of square
                 Vector3 pointOnUnitCube = localUp + (percent.x - .5f) * 2 * axisA + (percent.y - .5f) * 2 * axisB;
-                vertices[i] = pointOnUnitCube;
+                //vertices[i] = pointOnUnitCube;
+                Vector3 pointOnUnitSphere = pointOnUnitCube.normalized;
+                vertices[i] = pointOnUnitSphere;
 
                 //Create Triangles
-                if(x != resolution - 1 && y != resolution -1)
+                if (x != resolution - 1 && y != resolution -1)
                 {
                     triangles[triIndex] = i;
                     triangles[triIndex + 1] = i + resolution + 1;
                     triangles[triIndex + 2] = i + resolution;
 
-                    triangles[triIndex + 3] = 1;
+                    triangles[triIndex + 3] = i;
                     triangles[triIndex + 4] = i + 1;
                     triangles[triIndex + 5] = i + resolution + 1;
                     triIndex += 6;
