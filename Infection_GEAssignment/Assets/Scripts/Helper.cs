@@ -7,17 +7,24 @@ public class Helper : MonoBehaviour {
     [Range(2, 256)] // Maximum range 256 squared
     public int resolution = 10;
 
+    // Add shape settings
+    public ShapeSettings shapeSettings;
+
+    ShapeGenerator shapeGenerator;
+
+
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     terrainFace[] terrainFaces;
 
     private void OnValidate()
     {
-        Initialize();
-        GenerateMesh();
+        GenerateSphere();
     }
     void Initialize()
     {
+        shapeGenerator = new ShapeGenerator(shapeSettings);
+
         if(meshFilters == null || meshFilters.Length == 0)
         {
             meshFilters = new MeshFilter[6];
@@ -40,11 +47,26 @@ public class Helper : MonoBehaviour {
             }
             
 
-            terrainFaces[i] = new terrainFace(meshFilters[i].sharedMesh, resolution, directions[i]);
+            terrainFaces[i] = new terrainFace(shapeGenerator, meshFilters[i].sharedMesh, resolution, directions[i]);
         }
 
     }
 
+    //Generate entire sphere here
+    public void GenerateSphere()
+    {
+        Initialize();
+        GenerateMesh();
+    }
+
+    //Only on shape change call this method
+    public void OnShapeSettingUpdated()
+    {
+        Initialize();
+        GenerateMesh();
+    }
+
+    //Generate triangle mesh here
     void GenerateMesh()
     {
         foreach (terrainFace face in terrainFaces)
@@ -52,4 +74,5 @@ public class Helper : MonoBehaviour {
             face.ConstructMesh();
         }
     }
+    
 }
