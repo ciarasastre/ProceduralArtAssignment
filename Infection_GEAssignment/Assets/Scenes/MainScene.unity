@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 22214546}
   - component: {fileID: 22214545}
   m_Layer: 0
-  m_Name: Environment
+  m_Name: Env_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,7 +215,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 31900f1703b03e648b7b4f693c325981, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -253,8 +253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0d4aa23b521ae42a4351c62f2ceb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSize: 5
-  ySize: 5
+  xSize: 10
+  ySize: 0
+  zSize: 10
 --- !u!43 &59292059
 Mesh:
   m_ObjectHideFlags: 0
