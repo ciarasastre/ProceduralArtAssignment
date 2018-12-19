@@ -8,7 +8,7 @@ public class BumpyTerrain : MonoBehaviour
     public Transform pointPrefab;
 
     [Range(10, 100)]
-    public int resolution = 10;
+    public int resolution = 90;
 
     Transform[] points;
 
