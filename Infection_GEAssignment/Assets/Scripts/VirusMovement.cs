@@ -43,8 +43,6 @@ public class VirusMovement : MonoBehaviour {
         // Move our position a step closer to the target.
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
-        
-
     }
 
     //Collisions
