@@ -74,25 +74,6 @@ public class Environment : MonoBehaviour {
             vertCount++; //Makes sure it moves onto new line not connected
         }
 
-        /*Create triangles on xAxis
-        for(int x = 0; x < xSize; x++)
-        {
-            //This chunk creates a square within the vertices
-
-            triangles[triCount + 0] = vertCount + 0;
-            triangles[triCount + 1] = vertCount +  xSize + 1;
-            triangles[triCount + 2] = vertCount +  1;
-
-            triangles[triCount + 3] = vertCount +  1;
-            triangles[triCount + 4] = vertCount +  xSize + 1;
-            triangles[triCount + 5] = vertCount +  xSize + 2;
-
-            vertCount++; // Takes position of vert and brings it one over
-            triCount += 6; // Moves so its not iterating the same triangle
-
-        }*/
-
-        
     }
 
     void UpdateEnvironment()
@@ -106,38 +87,9 @@ public class Environment : MonoBehaviour {
         mesh.RecalculateNormals();
     }
 
-    /*private Vector3[] vertices;
-
-    private void Generate()
-    {
-        //Create Mesh
-        GetComponent<MeshFilter>().mesh = mesh = new Mesh();
-        mesh.name = "Procedural Environment";
-
-        vertices = new Vector3[(xSize + 1) * (ySize + 1)];
-
-        //Position vertices
-        for (int i = 0, y = 0; y <= ySize; y++)
-        {
-            for(int x =0; x<xSize; x++, i++)
-            {
-                vertices[i] = new Vector3(x, y);
-            }
-        }
-
-        //Apply Mesh
-        mesh.vertices = vertices;
-
-        //Start on triangles
-        int[] triangles = new int[3]; //Must be multiples of 3
-        triangles[0] = 0;
-        triangles[1] = xSize + 1;
-        triangles[2] = 1;
-        mesh.triangles = triangles;
-    }*/
 
     //Draws the vertices points 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         //Check wether array exists and jump out if it doesnt
         if (vertices == null)
@@ -152,5 +104,5 @@ public class Environment : MonoBehaviour {
         }
 
         
-    }
+    }*/
 }
