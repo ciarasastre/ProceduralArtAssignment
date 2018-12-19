@@ -28,6 +28,17 @@ public class HelperSquad : MonoBehaviour
 
         // Move our position a step closer to the target.
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+    }
 
+    //Collisions
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Cell")
+        {
+            // If the helper touches the Cell it self destructs
+
+            Destroy(gameObject);
+            Debug.Log("Destroyed");
+        }
     }
 }
