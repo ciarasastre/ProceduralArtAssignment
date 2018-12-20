@@ -11,6 +11,7 @@ public class VirusMovement : MonoBehaviour {
     private float rotationSpeed;
     
     public Transform target;
+    public Transform empty;
     public Transform childTarget;
     private Vector3 pos;
     public float speed;
@@ -26,7 +27,6 @@ public class VirusMovement : MonoBehaviour {
         //This prevents it from jolting
         rotationSpeed = Random.Range(-maxRotationSpeed, maxRotationSpeed);
         transform.Rotate(Random.Range(-twist, twist), 0f, 0f);
-        
         
     }
 	
@@ -50,15 +50,18 @@ public class VirusMovement : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Cell")
         {
-            // Creates a 4 new virus in one burst
-            //for (int i = 0; i < 4; i++)
-            //{
-                //Save position
-                //Vector3 pos = transform.position;
-                StartCoroutine(VirusCreation());
-           // }
+            StartCoroutine(VirusCreation());
+        }
+
+        if (collision.gameObject.tag == "Helpers")
+        {
+            //target = empty.transform;
+            // If the Cell gets touched by a helper it self destructs therfore killing the virus
+            //Destroy(gameObject);
+           // Debug.Log("Destroyed Virus");
         }
     }
+
 
     IEnumerator VirusCreation()
     {
@@ -67,8 +70,8 @@ public class VirusMovement : MonoBehaviour {
         Vector3 pos = transform.position;
         new GameObject("Virus Child").AddComponent<VirusMovement>().VirusStandBy(this, pos);*/
 
-        //This creates 4, 2 secs at a time
-        for (int i = 0; i < 4; i++)
+        //This creates 2, 3 secs at a time
+        for (int i = 0; i < 2; i++)
         {
             yield return new WaitForSeconds(3);
             //Save position
@@ -84,40 +87,15 @@ public class VirusMovement : MonoBehaviour {
 
         mesh = parent.mesh;
         material = parent.material; //pass material reference
-        
 
         target = parent.childTarget;
 
 
         speed = parent.speed;
-        maxRotationSpeed = parent.maxRotationSpeed;//parent.maxRotationSpeed;
-        twist = parent.twist;  // parent.twist;
-
-        /*bool standby = true;
-
-        if(standby == true)
-        {
-            Debug.Log("its true");
-            float speed2 = 5f;
-            //adjust this to change how high it goes
-            float height = 0.5f;
-
-            //get the Virus current position
-            Vector3 pos = transform.position;
-
-            //calculate what the new Y position will be
-            float newY = Mathf.Sin(Time.time * speed2);
-
-            //set the object's Y to the new calculated Y
-            transform.position = new Vector3(pos.x, newY, pos.z) * height;
-        }
-        else
-        {
-            // Get Destoyed orfind new cell
-        }*/
-
+        maxRotationSpeed = parent.maxRotationSpeed;
+        twist = parent.twist;  
+        transform.parent = parent.transform; // nests it in parent
         
     }
-
     
 }

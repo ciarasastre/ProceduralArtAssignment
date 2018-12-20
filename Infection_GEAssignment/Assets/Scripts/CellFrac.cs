@@ -106,5 +106,16 @@ public class CellFrac : MonoBehaviour
     {
         transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
     }
+
+    //Collisions
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Helpers")
+        {
+            // If the Cell gets touched by a helper it self destructs
+            Destroy(gameObject);
+            Debug.Log("Destroyed Cell");
+        }
+    }
 }
 

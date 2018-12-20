@@ -38,7 +38,7 @@ public class HelperSquad : MonoBehaviour
             // If the helper touches the Cell it self destructs
 
             Destroy(gameObject);
-            Debug.Log("Destroyed");
+            Debug.Log("Destroyed Helper");
         }
     }
 }
