@@ -11,8 +11,10 @@ public class VirusMovement : MonoBehaviour {
     private float rotationSpeed;
     
     public Transform target;
+
     //public Transform empty;
     public Transform childTarget;
+
     private Vector3 pos;
     public float speed;
 
@@ -68,14 +70,14 @@ public class VirusMovement : MonoBehaviour {
             yield return new WaitForSeconds(3);
             //Save position
             Vector3 pos = transform.position;
-            new GameObject("Virus Child").AddComponent<VirusMovement>().VirusStandBy(this,pos);
+            new GameObject("Virus Child").AddComponent<VirusMovement>().VirusDuplicate(this,pos);
         }
 
         // Destroy main virus when finished
         Destroy(gameObject);
     }
 
-    void VirusStandBy(VirusMovement parent, Vector3 pos)
+    void VirusDuplicate(VirusMovement parent, Vector3 pos)
     {
 
         transform.position = new Vector3(pos.x, pos.y, pos.z);

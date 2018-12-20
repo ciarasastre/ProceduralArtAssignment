@@ -52,10 +52,13 @@ public class BumpyTerrain : MonoBehaviour
     {
         float t = Time.time;
 
+        //loop through each and create wave
         for (int i = 0; i < points.Length; i++)
         {
             Transform point = points[i];
             Vector3 position = point.localPosition;
+
+            // Function calling
             position.y = MultiSine2DFunction(position.x, position.z, Time.time);
             //position = SphereDissolve(position.x, position.z, Time.time); //calls sphere dissolve
             point.localPosition = position;
@@ -64,7 +67,7 @@ public class BumpyTerrain : MonoBehaviour
     }
 
     //Sphere Cell Dissolve only works because i failed at creating a working sphere
-    static Vector3 SphereDissolve(float x, float z, float t)
+    /*static Vector3 SphereDissolve(float x, float z, float t)
     {
         Vector3 pos;
         float r = Mathf.Cos(Mathf.PI * 0.5f * z);
@@ -73,7 +76,7 @@ public class BumpyTerrain : MonoBehaviour
         pos.y = Mathf.Sin(Mathf.PI * 0.5f * z);
         pos.z = r * Mathf.Cos(Mathf.PI * x);
         return pos;
-    }
+    }*/
 
     //Bumpy Terrain
     static float MultiSine2DFunction(float x, float z, float t)
