@@ -52,14 +52,6 @@ public class VirusMovement : MonoBehaviour {
         {
             StartCoroutine(VirusCreation());
         }
-
-        if (collision.gameObject.tag == "Helpers")
-        {
-            //target = empty.transform;
-            // If the Cell gets touched by a helper it self destructs therfore killing the virus
-            //Destroy(gameObject);
-           // Debug.Log("Destroyed Virus");
-        }
     }
 
 
@@ -78,6 +70,9 @@ public class VirusMovement : MonoBehaviour {
             Vector3 pos = transform.position;
             new GameObject("Virus Child").AddComponent<VirusMovement>().VirusStandBy(this,pos);
         }
+
+        // Destroy main virus when finished
+        Destroy(gameObject);
     }
 
     void VirusStandBy(VirusMovement parent, Vector3 pos)
@@ -94,7 +89,7 @@ public class VirusMovement : MonoBehaviour {
         speed = parent.speed;
         maxRotationSpeed = parent.maxRotationSpeed;
         twist = parent.twist;  
-        transform.parent = parent.transform; // nests it in parent
+        //transform.parent = parent.transform; // nests it in parent
         
     }
     
