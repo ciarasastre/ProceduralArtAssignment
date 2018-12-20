@@ -7,7 +7,7 @@ public class HelperSquad : MonoBehaviour
     public Mesh mesh;
     public Material material;
     public Transform target;
-    public Transform childTarget;
+    //public Transform childTarget;
     private Vector3 pos;
     public float speed;
 

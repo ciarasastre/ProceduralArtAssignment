@@ -22,8 +22,16 @@ public class CellFrac : MonoBehaviour
         Quaternion.Euler(-90f, 0f, 0f) //backward
     };
 
+    //Fractal
     public Mesh[] meshes;
     public Material material;
+
+    //Signal
+    public Mesh sigMesh;
+    public Material sigMat;
+
+    public float speed;
+    public Transform childTarget;
 
     private int maxDepth = 2;
     private float childSize = 2;
@@ -110,6 +118,16 @@ public class CellFrac : MonoBehaviour
     //Collisions
     void OnCollisionEnter(Collision collision)
     {
+        /*if (collision.gameObject.tag == "Virus")
+        {
+            //Send signal
+            Debug.Log("HELP");
+
+            //Save position
+            Vector3 pos = transform.position;
+            new GameObject("Signal").AddComponent<CellFrac>().SendSignal(this, pos);
+        }*/
+
         if (collision.gameObject.tag == "Helpers")
         {
             // If the Cell gets touched by a helper it self destructs
@@ -117,5 +135,22 @@ public class CellFrac : MonoBehaviour
             Debug.Log("Destroyed Cell");
         }
     }
+
+    //Signal
+    /*void SendSignal(CellFrac parent, Vector3 pos)
+    {
+        transform.position = new Vector3(pos.x, pos.y, pos.z);
+
+        sigMesh = parent.sigMesh;
+        sigMat = parent.sigMat; //pass material reference
+
+        childTarget = parent.childTarget;
+
+
+        speed = parent.speed;
+        //maxRotationSpeed = parent.maxRotationSpeed;
+        //twist = parent.twist;
+    }*/
+
 }
 

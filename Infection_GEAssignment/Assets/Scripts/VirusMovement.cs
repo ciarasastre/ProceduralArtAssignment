@@ -11,7 +11,7 @@ public class VirusMovement : MonoBehaviour {
     private float rotationSpeed;
     
     public Transform target;
-    public Transform empty;
+    //public Transform empty;
     public Transform childTarget;
     private Vector3 pos;
     public float speed;
