@@ -15,7 +15,7 @@ Getting the functionality of the virus, cell and helper cell working together wa
 The biggest thing I learnt from this project is sometimes you can bite more then you can chew. I have tonnes of other ideas I want to implement and I feel like theres no end to what you can make in an open world.
 
 **Video on Youtube** </br>
-[![YouTube](https://www.youtube.com/watch?v=h5OPxIZy3OQ&feature=youtu.be.jpg)](https://www.youtube.com/watch?v=h5OPxIZy3OQ&feature=youtu.be)
+[![YouTube](/Images/ecoli.jpg)](https://www.youtube.com/watch?v=h5OPxIZy3OQ&feature=youtu.be)
 
 **Infection!** </br>
 This generation of art is split into 3 parts
