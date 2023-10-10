@@ -14,7 +14,7 @@ For the wave like pattern on the environment I learnt from the Perlin Noise we w
 Getting the functionality of the virus, cell and helper cell working together was very satisfactory. I also love creating objects in Blender although I didnt make too many objects as I was afraid there wouldnt be any code to show procedural shapes.</br>
 The biggest thing I learnt from this project is sometimes you can bite more then you can chew. I have tonnes of other ideas I want to implement and I feel like theres no end to what you can make in an open world.
 
-**Video on Youtube** </br>
+** Click on Image to watch Video on Youtube** </br>
 [![YouTube](/Images/tn.jpg)](https://www.youtube.com/watch?v=h5OPxIZy3OQ&feature=youtu.be)
 
 **Infection!** </br>
@@ -37,7 +37,4 @@ The environment in this case will be the body. Even though the virus' that I mak
 
 As you can see in the photos the virus themselves are terrifying but beautiful in how they look. In regards to the coding section i will attach a special script to each of these virus' and helper cells that would be their normal behavior if they were to act in the body.
 
-This video explains how a virus will attempt to sneak into the body which is how I will make them behave in Unity:
-https://www.youtube.com/watch?v=Rpj0emEGShQ
 
-[![YouTube](https://www.youtube.com/watch?v=Rpj0emEGShQ.jpg)](https://www.youtube.com/watch?v=Rpj0emEGShQ)
